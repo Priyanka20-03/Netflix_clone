@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix India – Watch TV Shows Online, Watch Movies Online</title>
+    <style>
+        @font-face {
+            font-family: 'regular';
+            src: url(E:\cwh_projects\Netflix_clone\NetflixSansRegular.ttf);
+
+        }
+
+        @font-face {
+            font-family: "bold";
+            src: url(E:\cwh_projects\Netflix_clone\NetflixSansBold.ttf);
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Martel+Sans:wght@900&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-image: url(https://assets.nflxext.com/ffe/siteui/vlv3/594f8025-139a-4a35-b58d-4ecf8fdc507c/d3c4e455-f0bf-4003-b7cd-511dda6da82a/IN-en-20240108-popsignuptwoweeks-perspective_alpha_website_small.jpg);
+            background-position: center center;
+            background-size: max(1081px, 100vw);
+            background-repeat: no-repeat;
+            height: 700px;
+            position: relative; 
+       
+        }
+
+        nav {
+            max-width: 60vw;
+            justify-content: space-between;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            height: 100px;
+        }
+
+        .navb {
+            display: flex;
+            flex-direction: row;
+            gap: 30px;
+        }
+
+        .logo {
+            color: red;
+            width: 140px;
+            height: 40;
+            position: relative;
+            z-index: 10;
+        }
+
+        .sign {
+            background-color: rgb(229, 9, 20);
+            color: white;
+            position: relative;
+            z-index: 10;
+            padding: 4px 16px;
+            border-style: solid;
+            border-width: 0.0625rem;
+            border-radius: 0.1875rem;
+
+            border-color: rgba(0, 0, 0, 0);
+            font-weight: 500;
+            font-family: "Netflix Sans", "Helvetica Neue", "Segoe UI", Roboto, Ubuntu, sans-serif;
+            font-size: 14px;
+        }
+
+        .hinglish {
+            display: flex;
+            flex-direction: row;
+            gap: 2px;
+            /* background-color:transparent; */
+            width: 156px;
+            height: 39px;
+            margin-right: 27px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .lang {
+            color: white;
+            background: transparent;
+            position: relative;
+            z-index: 10;
+            border: 1px solid #ffffff38;
+            border-radius: 3px;
+            padding: 3px 8px;
+        }
+
+        .lang .english .hindi {
+            color: black;
+        }
+
+        .front {
+            font-family: 'Martel Sans', sans-serif;
+            height: calc(100% - 100px);
+            width: 71vw;
+            text-align: center;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            color: white;
+            position: relative;
+            gap: 23px;
+            /* padding: 0 30px; */
+        }
+
+        .front :nth-child(1) {
+            font-family: "Netflix Sans", "Helvetica Neue", "Segoe UI", Roboto, Ubuntu, sans-serif;
+            font-weight: 900;
+            font-size: 48px;
+        }
+
+        .front :nth-child(2) {
+            font-family: "Netflix Sans", "Helvetica Neue", "Segoe UI", Roboto, Ubuntu, sans-serif;
+            font-weight: 400;
+            font-size: 24px;
+        }
+
+        .front :nth-child(3) {
+            font-family: "Netflix Sans", "Helvetica Neue", "Segoe UI", Roboto, Ubuntu, sans-serif;
+            font-weight: 400;
+            font-size: 24px;
+        }
+
+
+        .egbtn .email {
+            font-family: "Netflix Sans", "Helvetica Neue", "Segoe UI", Roboto, Ubuntu, sans-serif;
+            font-size: 16px;
+            font-weight: 400;
+            /* padding: 24px 16px 8px; */
+            width: 369px;
+            height: 56px;
+            background: transparent;
+            background: rgba(22, 22, 22, 0.7);
+            border-color: rgba(128, 128, 128, 0.7);
+            padding-left: 12px;
+            position: relative;
+            z-index: 0;
+
+            border-width: 1px;
+            border-style: solid;
+            border-radius: 0.25rem;
+        }
+
+        .egbtn .get {
+            font-family: "Netflix Sans", "Helvetica Neue", "Segoe UI", Roboto, Ubuntu, sans-serif;
+            font-size: 24px;
+            font-weight: 500;
+            color: white;
+            border-style: solid;
+            border-width: 0.0625rem;
+            border-radius: 0.1875rem;
+            width: 208px;
+            height: 56px;
+            border-color: rgba(0, 0, 0, 0);
+            background: rgb(229, 9, 20);
+        }
+
+
+
+        .box {
+
+            height: 700px;
+            width: 100%;
+            opacity: 0.69;
+            position: absolute;
+            top: 0;
+            background-color: black;
+        }
+
+        .seperation {
+            background-color: #232323;
+            width: 100%;
+            position: relative;
+            z-index: 20;
+            height: 0.5rem;
+            border: none;
+            /* position: absolute; */
+            /* bottom: -0.5rem; */
+            /* background-color: rgb(35, 35, 35); */
+        }
+
+        body {
+            background-color: black;
+        }
+
+        .first {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            /* gap: 273px; */
+            /* width: 50%; */
+            /* height: 753.9px; */
+            background-color: black;
+            color: white;
+            /* margin: auto; */
+            padding: 20px 0;
+            margin: 0 174.60px;
+        }
+
+        .ftv {
+            width: 579px;
+            height: 579px;
+            text-align: center;
+        }
+
+        .tv {
+            /* height: 480px; */
+            width: 555px;
+            position: relative;
+            z-index: 10;
+            padding-top: 94px;
+        }
+
+        .vtv {
+            /* height: 480px; */
+            width: 399px;
+            position: absolute;
+            top: 911px;
+            right: 255px;
+            z-index: 0;
+
+        }
+
+        .first h2 {
+            font-family: "Netflix Sans", "Helvetica Neue", "Segoe UI", Roboto, Ubuntu, sans-serif;
+            font-weight: 900;
+            font-size: 48px;
+            padding-bottom: 20px;
+        }
+
+        .first p {
+            font-family: "Netflix Sans", "Helvetica Neue", "Segoe UI", Roboto, Ubuntu, sans-serif;
+            font-weight: 400;
+            font-size: 24px;
+        }
+
+        .imgb {
+            padding: 8px 12px;
+            width: 289.5px;
+            height: 84px;
+            background-color: black;
+            border: 1.6px solid rgba(128, 128, 128, 0.7);
+            border-radius: 12px;
+            display: flex;
+            flex-direction: row;
+            position: absolute;
+            left: 292px;
+            bottom: -1090px;
+            z-index: 10;
+        }
+
+        .imgbt {
+            display: flex;
+            flex-direction: column;
+            padding-left: 23px;
+
+        }
+
+        .imgbt h2 {
+            font-family: "Netflix Sans", "Helvetica Neue", "Segoe UI", Roboto, Ubuntu, sans-serif;
+            font-weight: 500;
+            font-size: 16px;
+            padding: 0;
+            margin-top: 15px;
+        }
+
+        .imgbt p {
+            font-family: "Netflix Sans", "Helvetica Neue", "Segoe UI", Roboto, Ubuntu, sans-serif;
+            font-weight: 400;
+            font-size: 14px;
+            color: blue;
+
+        }
+
+        .dimg {
+            padding-left: 5px;
+        }
+
+        .sstv {
+            width: 579px;
+            height: 579px;
+            text-align: center;
+            padding-top: 94px;
+        }
+
+        .stv {
+            /* height: 480px; */
+            width: 632px;
+            position: relative;
+            z-index: 10;
+            
+        }
+
+        .svtv {
+            /* height: 480px; */
+            width: 399px;
+            position: absolute;
+            z-index: 0;
+            right: 236px;
+            bottom: -1632px;
+
+        }
+
+        .last h2 {
+            font-family: "Netflix Sans", "Helvetica Neue", "Segoe UI", Roboto, Ubuntu, sans-serif;
+            font-weight: 900;
+            font-size: 48px;
+            color: white;
+            text-align: center;
+            padding-top: 50px;
+        }
+
+        .ques {
+            display: flex;
+            flex-direction: row;
+            align-items: baseline;
+            justify-content: space-between;
+            background-color: #2d2d2d;
+            margin: 50px 174.6px;
+            height: 55px;
+            padding-bottom: 14px;
+            padding-left: 13px;
+            padding-right: 13px;
+        }
+
+        .ques h2 {
+            font-family: "Netflix Sans", "Helvetica Neue", "Segoe UI", Roboto, Ubuntu, sans-serif;
+            font-weight: 400;
+            font-size: 24px;
+            padding-top: 5px;
+
+        }
+
+        .sl {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            align-items: center;
+            margin-bottom: 50px;
+        }
+
+        .sl p {
+            font-family: "Netflix Sans", "Helvetica Neue", "Segoe UI", Roboto, Ubuntu, sans-serif;
+            font-weight: 400;
+            font-size: 20px;
+            color: white;
+        }
+
+        footer {
+            color: rgba(255, 255, 255, 0.7);
+            max-width: 60vw;
+            margin: auto;
+            padding: 60px;
+
+        }
+
+        footer .questions {
+            padding: 34px 0;
+            font-family: "Netflix Sans", "Helvetica Neue", "Segoe UI", Roboto, Ubuntu, sans-serif;
+            font-weight: 400;
+            font-size: 16px;
+        }
+
+
+        .footer {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .footer a {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        .footer-item p{
+            font-family: "Netflix Sans", "Helvetica Neue", "Segoe UI", Roboto, Ubuntu, sans-serif ;
+            font-weight: 400;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.7);
+    
+        }
+
+        .footer-item {
+            display: flex;
+            flex-direction: column;
+            gap: 23px;
+            font-family: "Netflix Sans", "Helvetica Neue", "Segoe UI", Roboto, Ubuntu, sans-serif;
+            font-weight: 400;
+            font-size: 14px;
+        }
+        .llang {
+            color: white;
+            background: transparent;
+            position: relative;
+            z-index: 10;
+            border: 1px solid #ffffff38;
+            border-radius: 3px;
+            padding: 3px 8px;
+            width: 83px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div>
+                <img class="logo" src="logo.svg">
+            </div>
+            <div class="navb">
+                <!-- <div class="hinglish">
+                    <img src="lang.svg"> -->
+                <select class="lang">
+                    <option value="english" label="English" class="eng"></option>
+                    <option value="hindi" label="हिंदी" class="hindi">हिंदी</option>
+                </select>
+                <!-- <img src="arrow.svg"> -->
+
+                <!-- </div> -->
+
+
+                <button class="sign">Sign In</button>
+            </div>
+        </nav>
+        <div class="box">
+
+        </div>
+        <div class="front">
+            <div>
+                The biggest Indian hits. The best Indian stories. All streaming here.
+            </div>
+            <div>
+                Watch anywhere. Cancel anytime.
+            </div>
+            <div>
+                Ready to watch? Enter your email to create or restart your membership.
+            </div>
+            <div class="egbtn">
+                <input type="text" placeholder="Email address" class="email">
+                <button class="get">Get Started &gt;</button>
+            </div>
+
+        </div>
+
+
+    </header>
+    <hr class="seperation">
+    <main>
+        <div class="first">
+            <div class="ft">
+                <h2>Enjoy on your TV</h2>
+                <p>Watch on smart TVs, PlayStation, Xbox, Chromecast, Apple TV, Blu-ray players and more.</p>
+            </div>
+            <div class="ftv">
+                <img class="tv" src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/tv.png">
+                <video class="vtv" src="video1.m4v" autoplay loop muted></video>
+            </div>
+        </div>
+        <hr class="seperation">
+        <div class="first">
+
+            <div class="ftv">
+                <img class="tv"
+                    src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/mobile-0819.jpg">
+                <div class="imgb">
+                    <img src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/boxshot.png"
+                        height="80px" width="57px">
+                    <div class="imgbt">
+                        <h2>Stranger Things</h2>
+                        <p>Downloading...</p>
+                    </div>
+                    <img class="dimg"
+                        src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/download-icon.gif">
+
+                </div>
+            </div>
+            <div class="ft">
+                <h2>Download your shows to watch offline</h2>
+                <p>Save your favourites easily and always have something to watch.</p>
+            </div>
+        </div>
+        <hr class="seperation">
+        <div class="first">
+            <div class="ft">
+                <h2>Watch everywhere</h2>
+                <p>Stream unlimited movies and TV shows on your phone, tablet, laptop, and TV.</p>
+            </div>
+            <div class="sstv">
+                <img class="stv"
+                    src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/device-pile-in.png">
+                <video class="svtv" src="video2.m4v" autoplay loop muted></video>
+            </div>
+        </div>
+        <hr class="seperation">
+        <div class="first">
+
+            <div class="ftv">
+                <img class="tv"
+                    src="https://occ-0-6245-2164.1.nflxso.net/dnm/api/v6/19OhWN2dO19C9txTON9tvTFtefw/AAAABVr8nYuAg0xDpXDv0VI9HUoH7r2aGp4TKRCsKNQrMwxzTtr-NlwOHeS8bCI2oeZddmu3nMYr3j9MjYhHyjBASb1FaOGYZNYvPBCL.png?r=54d">
+
+            </div>
+            <div class="ft">
+                <h2>Create profiles for kids</h2>
+                <p>Send children on adventures with their favourite characters in a space made just for them—free with
+                    your membership.</p>
+            </div>
+        </div>
+        <hr class="seperation">
+        <div class="last">
+            <h2>Frequently Asked Questions</h2>
+            <div class="ques">
+                <h2>What is Netflix?</h2>
+                <svg xmlns="http://www.w3.org/2000/svg" height="44" width="44" fill="white"
+                    viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                    <path
+                        d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z" />
+                </svg>
+
+
+            </div>
+            <div class="ques">
+                <h2>How much does Netflix cost?</h2>
+                <svg xmlns="http://www.w3.org/2000/svg" height="44" width="44" fill="white"
+                    viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                    <path
+                        d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z" />
+                </svg>
+
+
+            </div>
+            <div class="ques">
+                <h2>Where can I watch?</h2>
+                <svg xmlns="http://www.w3.org/2000/svg" height="44" width="44" fill="white"
+                    viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                    <path
+                        d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z" />
+                </svg>
+
+
+            </div>
+            <div class="ques">
+                <h2>How do I cancel?</h2>
+                <svg xmlns="http://www.w3.org/2000/svg" height="44" width="44" fill="white"
+                    viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                    <path
+                        d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z" />
+                </svg>
+
+
+            </div>
+            <div class="ques">
+                <h2>What can I watch on Netflix?</h2>
+                <svg xmlns="http://www.w3.org/2000/svg" height="44" width="44" fill="white"
+                    viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                    <path
+                        d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z" />
+                </svg>
+
+
+            </div>
+            <div class="ques">
+                <h2>Is Netflix good for kids?</h2>
+                <svg xmlns="http://www.w3.org/2000/svg" height="44" width="44" fill="white"
+                    viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                    <path
+                        d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z" />
+                </svg>
+
+
+
+            </div>
+            <div class="sl">
+                <p>Ready to watch? Enter your email to create or restart your membership.</p>
+                <div class="egbtn">
+                    <input type="text" placeholder="Email address" class="email">
+                    <button class="get">Get Started &gt;</button>
+                </div>
+            </div>
+            <hr class="seperation">
+
+    </main>
+    <footer>
+        <div class="questions">
+            Questions? Call 000-800-919-1694
+        </div>
+        <div class="footer">
+            <div class="footer-item">
+                <a href="faq">FAQ</a>
+                <a href="faq">Investor Relations</a>
+                <a href="faq">Privacy</a>
+                <a href="faq">Speed Test</a>
+                <select class="llang">
+                    <option value="english" label="English" class="leng"></option>
+                    <option value="hindi" label="हिंदी" class="lhindi">हिंदी</option>
+                </select>
+                <p>Netflix India</P>
+            </div>
+
+            <div class="footer-item">
+                <a href="faq">Help Centre</a>
+                <a href="faq">Jobs</a>
+                <a href="faq">Cookie Preferences</a>
+                <a href="faq">Legal Notices</a>
+            </div>
+            <div class="footer-item">
+                <a href="faq">Account</a>
+                <a href="faq">Watch to Watch
+                </a>
+                <a href="faq">Corporate Information</a>
+                <a href="faq">Only on Netflix</a>
+            </div>
+
+            <div class="footer-item">
+                <a href="faq">Media Centre</a>
+                <a href="faq">Terms of use</a>
+                <a href="faq">Contact Us</a>
+                
+            </div>
+        </div>
+
+    </footer>
+
+</body>
+
+</html>
